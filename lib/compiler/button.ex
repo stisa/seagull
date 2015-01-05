@@ -54,6 +54,6 @@ defmodule Compiler.Button do
   defp compile_option(data, {:label, label}), do: :wxButton.setLabel(Keyword.get(data, :wxobject), label)
   defp compile_option(data, :disabled), do: :wxButton.disable(Keyword.get(data, :wxobject))
   defp compile_option(data, :default), do: :wxButton.setDefault(Keyword.get(data, :wxobject))
-  defp compile_option(_data, option), do: raise {:uknown_option, option}
+  defp compile_option(_data, option), do: raise {:unknown_option, option}
 
 end
