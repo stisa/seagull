@@ -6,7 +6,7 @@ Simple GUI library for Elixir language based on wxErlang.
 To run the examples in lib/demo do:
 
 ```
-mix run -e Demo./*moduleName*/
+mix compile
 iex -S mix
 Demo./*moduleName*/.start
 ```
@@ -14,7 +14,7 @@ Demo./*moduleName*/.start
 for example, to start the Button demo, do:
 
 ```
-mix run -e Demo.Button
+mix compile
 iex -S mix
 Demo.Button.start
 ```
