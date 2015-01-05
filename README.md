@@ -2,6 +2,15 @@
 
 Simple GUI library for Elixir language based on wxErlang.
 
+## Usage
+
+Add `:seagull, git: "https://github.com/stisa/seagull.git"` to your deps in your mix.exs, then `mix deps.get`.
+Then you can try one of the examples below, just copy paste the code in a `.ex` file and do:
+```
+mix compile && iex -S mix
+YourModuleName.start
+```
+
 ## Examples
 To run the examples in lib/demo do:
 

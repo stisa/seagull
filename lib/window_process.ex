@@ -39,7 +39,7 @@ defmodule WindowProcess do
   defp respond(window, pid, id, func, params) do
     {compiled, _tree}=window
     object=Keyword.get(compiled, id, nil)
-    if object==nil, do: raise {:uknown_object, id}
+    if object==nil, do: raise {:unknown_object, id}
     object=[{:window, window}|object]
     response=get_response(Keyword.get(object, :type), object, func, params)
     response=case response do
@@ -63,6 +63,6 @@ defmodule WindowProcess do
   for {type, class} <- @classes do
     defp get_response(unquote(type), object, func, params), do: unquote(class).respond(object, func, params)
   end
-  defp get_response(type, _object, _func, _params), do: raise {:uknown_type, type}
+  defp get_response(type, _object, _func, _params), do: raise {:unknown_type, type}
 
 end
