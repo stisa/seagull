@@ -3,7 +3,8 @@
 Simple GUI library for Elixir language based on wxErlang.
 
 ## Examples
-To run the examples in lib/demo do:
+
+To run the examples, copy **demo** to your **lib** folder, then do:
 
 ```
 mix compile
