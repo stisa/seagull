@@ -3,6 +3,22 @@
 Simple GUI library for Elixir language based on wxErlang.
 
 ## Examples
+To run the examples in lib/demo do:
+
+```
+mix run -e Demo./*moduleName*/
+iex -S mix
+Demo./*moduleName*/.start
+```
+
+for example, to start the Button demo, do:
+
+```
+mix run -e Demo.Button
+iex -S mix
+Demo.Button.start
+```
+
 
 ### Window with one button
 

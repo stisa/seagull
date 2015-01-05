@@ -26,7 +26,7 @@ defmodule Compiler do
   end
  
   def random_id() do
-    :random.uniform(4294967295) |> integer_to_binary |> binary_to_atom
+    :random.uniform(4294967295) |> Integer.to_string |> String.to_atom
   end
 
   def fuse_styles(list), do: fuse_styles(list, 0, [])

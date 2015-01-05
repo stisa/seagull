@@ -52,7 +52,7 @@ defmodule Demo.PID do
       from pid: _pid do
         from widget: ^widget do 
           :click->
-            IO.puts "#{pid_to_binary(self)}: Clicked #{atom_to_binary(widget)}."
+            IO.puts "#{pid_to_binary(self)}: Clicked #{Atom.to_string(widget)}."
             f widget
         end
       end
