@@ -13,13 +13,13 @@ defmodule Event do
     if Event.react(Keyword.get(data, :type), data, event) do
       react data, tail
     else
-      raise {:uknown_event, event}
+      raise {:unknown_event, event}
     end
   end
 
   def react(data, event) do
     if not Event.react(Keyword.get(data, :type), data, event) do
-      raise {:uknown_event, event}
+      raise {:unknown_event, event}
     end
   end
 
@@ -36,7 +36,7 @@ defmodule Event do
   end
   def dont_react(data, event) do
     if not dont_react(Keyword.get(data, :type), data, event) do
-      raise {:uknown_event, event}
+      raise {:unknown_event, event}
     end
   end
 
@@ -49,7 +49,7 @@ defmodule Event do
   for {widget, event_groups} <- @event_groups do
     def translate(wxid, wxobject, {unquote(widget), id, event_type}, event, window) do
       if not Enum.any?(unquote(event_groups), fn(group)-> group.translate(wxid, wxobject, id, event_type, event, window) end) do
-        raise {:uknown_event, id, event}
+        raise {:unknown_event, id, event}
       end
     end
   end

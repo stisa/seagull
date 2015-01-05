@@ -57,7 +57,7 @@ defmodule Demo.Calc do
         from widget: w do
           :click->
             if Enum.member?([:add, :sub, :mul, :div, :eq], w) do
-              value=send(pid, :display, :get_value) |> Integer.parse
+              value=send(pid, :display, :get_value) |> Integer.to_string
               acc=case op do
                 :add->acc+value
                 :sub->acc-value

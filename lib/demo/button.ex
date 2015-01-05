@@ -64,13 +64,18 @@ defmodule Demo.Button do
             send pid, :destroy
             continue=false
         end
-        from widget: :click_button, do: (:click->IO.puts "You clicked on button.")
+        from widget: :click_button do
+          :click->IO.puts ("You clicked on button.")
+        end
         from widget: :count_button do
           :click->
             label=send pid, :count_button, :get_label
-            count=Regex.run(~r/[0-9]+/, label) |> List.first |> String.to_integer
+            IO.puts(label)
+            count = String.split(label, ": ") |> List.last |> String.strip |> String.to_integer
+            #count=Regex.run(~r/[0-9]+/, label) |> List.first |> String.to_integer
             count=count+1
-            label=Regex.replace ~r/([0-9]+)/, label, Integer.parse(count)
+            #label=Regex.replace ~r/([0-9]+)/, label, Integer.to_string(count)
+            label= "This button counts\nclicks: " <> Integer.to_string(count)
             send pid, :count_button, :set_label, label
         end
         from widget: :grow_button do
@@ -88,7 +93,9 @@ defmodule Demo.Button do
             send pid, :button, :dont_react, :click
             send pid, :button, :set_label, "This button\ndont reacts on clicks."
         end
-        from widget: :button, do: (:click->IO.puts "You clicked on activated button.")
+        from widget: :button do 
+          :click->(IO.puts "You clicked on activated button.")
+        end
       end
     end
     if continue, do: reaction pid
