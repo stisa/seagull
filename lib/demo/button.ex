@@ -70,7 +70,6 @@ defmodule Demo.Button do
         from widget: :count_button do
           :click->
             label=send pid, :count_button, :get_label
-            IO.puts(label)
             count = String.split(label, ": ") |> List.last |> String.strip |> String.to_integer
             #count=Regex.run(~r/[0-9]+/, label) |> List.first |> String.to_integer
             count=count+1
